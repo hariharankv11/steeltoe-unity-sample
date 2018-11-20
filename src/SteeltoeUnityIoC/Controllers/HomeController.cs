@@ -3,6 +3,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
+using SteeltoeUnityIoC.Models;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Web.Mvc;
 
@@ -10,17 +12,13 @@ namespace SteeltoeUnityIoC.Controllers
 {
     public class HomeController : Controller
     {
-
-        //private IConfiguration _configuration = CoreServerConfig.GetService<IConfiguration>();
-        //private IOptionsSnapshot<CloudFoundryServicesOptions> _cfServices = CoreServerConfig.GetService<IOptionsSnapshot<CloudFoundryServicesOptions>>();
-        //private IConnectionMultiplexer _redisConnection = CoreServerConfig.GetService<IConnectionMultiplexer>();
-        //private ILogger<HomeController> _logger = CoreServerConfig.GetService<ILogger<HomeController>>();
-
         private IConfiguration _configuration;
         private IOptionsSnapshot<CloudFoundryServicesOptions> _cfServices;
         private IConnectionMultiplexer _redisConnection;
         private ILogger<HomeController> _logger;
         private ITestClass _testClass;
+
+        // these were added to test the app when unity extension broke mvc unity
 
         //public HomeController() { }
 
@@ -46,22 +44,21 @@ namespace SteeltoeUnityIoC.Controllers
             _testClass = testClass;
         }
 
-    public ActionResult Index()
+        public ActionResult Index()
         {
-            Debug.WriteLine($"spring app: {_configuration["spring:application:name"]}");
-            Debug.WriteLine($"bounded services count: {_cfServices?.Value.ServicesList.Count}");
-            Debug.WriteLine($"redis connection: {_redisConnection?.Configuration}");
-            Debug.WriteLine((_redisConnection == null) ? "could not read connection using multiplexer" : "read connection using multiplexer");
-            Debug.WriteLine($"testClass DoSomethingCrazy() method: {_testClass?.DoSomethingCrazy()}");
-            
-            
+            //Debug.WriteLine($"spring app: {_configuration["spring:application:name"]}");
+            //Debug.WriteLine($"bounded services count: {_cfServices?.Value.ServicesList.Count}");
+            //Debug.WriteLine($"redis connection: {_redisConnection?.Configuration}");
+            //Debug.WriteLine((_redisConnection == null) ? "could not read connection using multiplexer" : "read connection using multiplexer");
+            //Debug.WriteLine($"testClass DoSomethingCrazy() method: {_testClass?.DoSomethingCrazy()}");
+
+
             return View();
         }
 
         public ActionResult About()
         {
-            //ViewBag.Message = "Your application description page.";
-            ViewBag.Message = $"spring app: {_configuration["spring:application:name"]}";
+            ViewBag.Message = "Your application description page.";
 
             return View();
         }
@@ -71,6 +68,23 @@ namespace SteeltoeUnityIoC.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult ResolveServices()
+        {
+            ViewBag.Message = "Use this page to display resovled services information";
+
+            var services = new Dictionary<string, string>();
+
+            services.Add("IConfiguration :: spring app - ", _configuration["spring:application:name"]);
+            services.Add("IOptionsSnapshot<CloudFoundryServicesOptions> :: bounded services count - ", _cfServices?.Value.ServicesList.Count.ToString());
+            services.Add("IConnectionMultiplexer :: redis connection - ", _redisConnection?.Configuration);
+            services.Add("IConnectionMultiplexer :: could read connection using multiplexer- ", (_redisConnection == null) ? "no" : "yes");
+            services.Add("ITestClass :: DoSomethingCrazy() method - ", _testClass?.DoSomethingCrazy());
+
+            var model = new ServicesViewModel();
+            model.Services = services;
+            return View(model);
         }
     }
 }
