@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C920EC1F-8D6B-479B-BD19-F89AC929867F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D5E0FEBA-0607-4D11-9AFE-3CBFA3BE0CBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteeltoeUnityIoC", "src\SteeltoeUnityIoC\SteeltoeUnityIoC.csproj", "{4989D6D3-291F-4BF3-B62B-0FFF12853E38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FortuneTeller", "FortuneTeller", "{B9F9079C-1C48-4994-AE59-6C8D75D71D4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fortune-Teller-Service", "src\FortuneTeller\Fortune-Teller-Service\Fortune-Teller-Service.csproj", "{EA866D6C-C945-42DC-9613-8DD063C7F469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fortune-Teller-UI", "src\FortuneTeller\Fortune-Teller-UI\Fortune-Teller-UI.csproj", "{45ED65F0-CE26-4168-AD00-11A10CBAC263}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4989D6D3-291F-4BF3-B62B-0FFF12853E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4989D6D3-291F-4BF3-B62B-0FFF12853E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4989D6D3-291F-4BF3-B62B-0FFF12853E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4989D6D3-291F-4BF3-B62B-0FFF12853E38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA866D6C-C945-42DC-9613-8DD063C7F469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA866D6C-C945-42DC-9613-8DD063C7F469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA866D6C-C945-42DC-9613-8DD063C7F469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA866D6C-C945-42DC-9613-8DD063C7F469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45ED65F0-CE26-4168-AD00-11A10CBAC263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45ED65F0-CE26-4168-AD00-11A10CBAC263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45ED65F0-CE26-4168-AD00-11A10CBAC263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45ED65F0-CE26-4168-AD00-11A10CBAC263}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4989D6D3-291F-4BF3-B62B-0FFF12853E38} = {C920EC1F-8D6B-479B-BD19-F89AC929867F}
+		{B9F9079C-1C48-4994-AE59-6C8D75D71D4F} = {C920EC1F-8D6B-479B-BD19-F89AC929867F}
+		{EA866D6C-C945-42DC-9613-8DD063C7F469} = {B9F9079C-1C48-4994-AE59-6C8D75D71D4F}
+		{45ED65F0-CE26-4168-AD00-11A10CBAC263} = {B9F9079C-1C48-4994-AE59-6C8D75D71D4F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15D131B1-4C82-4ABE-AEA0-B8046E1A832C}
+	EndGlobalSection
+EndGlobal
