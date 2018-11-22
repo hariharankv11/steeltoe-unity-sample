@@ -395,6 +395,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\ApplicationConfig.cs" />
+    <Compile Include="App_Start\DiscoveryConfig.cs" />
     <Compile Include="App_Start\ManagementConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
