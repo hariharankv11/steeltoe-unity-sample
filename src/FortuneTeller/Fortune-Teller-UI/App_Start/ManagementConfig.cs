@@ -5,8 +5,8 @@ using Steeltoe.Common.HealthChecks;
 using Steeltoe.Management.Endpoint;
 using System.Collections.Generic;
 
-namespace Fortune_Teller_Service
-{   
+namespace Fortune_Teller_UI
+{
     public class ManagementConfig
     {
         public static void Register()

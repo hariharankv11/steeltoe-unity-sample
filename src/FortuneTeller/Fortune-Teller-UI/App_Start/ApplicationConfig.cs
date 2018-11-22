@@ -5,13 +5,13 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
 using Pivotal.Discovery.Client;
 using Pivotal.Extensions.Configuration.ConfigServer;
-using Steeltoe.CloudFoundry.Connector.SqlServer;
+using Steeltoe.CloudFoundry.Connector.Redis;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using Steeltoe.Extensions.Logging;
 using Unity;
 using Unity.Microsoft.DependencyInjection;
 
-namespace Fortune_Teller_Service
+namespace Fortune_Teller_UI
 {
     public class ApplicationConfig
     {
@@ -39,8 +39,8 @@ namespace Fortune_Teller_Service
                         services.AddOptions();
                         services.AddLogging();
                         services.ConfigureCloudFoundryOptions(hostContext.Configuration);
-                        services.AddSqlServerConnection(hostContext.Configuration, logFactory: factory);
                         services.AddDiscoveryClient(hostContext.Configuration);
+                        services.AddRedisConnectionMultiplexer(hostContext.Configuration);
 
                         // assign service collection to local place holder
                         _services = services;
@@ -58,7 +58,6 @@ namespace Fortune_Teller_Service
             return _host.Services.GetService<T>();
         }
 
-                
         public static void BuildServiceProvider(IUnityContainer container)
         {
             // add services to unity container. piggy backing on Unity.Microsoft.DependencyInjection extensions

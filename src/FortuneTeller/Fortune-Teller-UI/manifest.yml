@@ -1,0 +1,16 @@
+﻿---
+applications:
+- name: fortuneUiUnity
+  buildpack: hwc_buildpack
+  stack: windows2016
+  memory: 512M
+  instances: 1
+  random-route: true
+  path: bin/Debug/net472/win10-x64/publish
+  env:
+    ASPNETCORE_ENVIRONMENT: production
+  services:
+   - coreConfigServer
+   - eurekaServer
+   - redisInstance
+  

@@ -1,7 +1,7 @@
 ﻿using Steeltoe.Common.Discovery;
 using Unity;
 
-namespace Fortune_Teller_Service
+namespace Fortune_Teller_UI
 {
     public class DiscoveryConfig
     {
