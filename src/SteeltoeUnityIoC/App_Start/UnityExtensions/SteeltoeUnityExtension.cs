@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using Unity;
 using Unity.Builder;
 using Unity.Builder.Strategy;
 using Unity.Extension;
@@ -8,6 +9,21 @@ using Unity.Policy;
 
 namespace SteeltoeUnityIoC.UnityExtensions
 {
+    //// i tried copying registerd services but this is not working
+    //public static class SteeltoeUnityExtensions
+    //{
+    //    public static void LoadMicrosoftDIContainerServices(this IUnityContainer container)
+    //    {
+    //        // load microsoft di registrations into unity container
+    //        foreach (var t in ApplicationConfig.Registrations())
+    //        {
+    //            if (t.Value != null) container.RegisterInstance(t.Key, t.Value);
+    //        }
+
+    //    }
+    //}
+
+
     // i have created my extension based on the accepted answer. replaced factory with my custom implmentation. used refelction to get 
     // requested service from microsoft di container, using custom static method. its getting service registrations when called 
     // standalone. refer to debug statements in global.asax.cs,  but its breaking MVC Unity.
@@ -66,7 +82,7 @@ namespace SteeltoeUnityIoC.UnityExtensions
             if (context.Existing == null)
             {
                 // invoke CoreServerConfig.GetService<T>() using reflection
-                MethodInfo method = typeof(CoreServerConfig).GetMethod("GetService")
+                MethodInfo method = typeof(ApplicationConfig).GetMethod("GetService")
                                              .MakeGenericMethod(new Type[] { key.Type });
 
                 // get T from CoreServerConfig.GetService<T>()
@@ -95,4 +111,6 @@ namespace SteeltoeUnityIoC.UnityExtensions
             }
         }
     }
+
+    
 }

@@ -18,7 +18,7 @@ namespace SteeltoeUnityIoC.Controllers
         private ILogger<HomeController> _logger;
         private ITestClass _testClass;
 
-        // these were added to test the app when unity extension broke mvc unity
+        //// these were added to test the app when unity extension broke mvc unity
 
         //public HomeController() { }
 

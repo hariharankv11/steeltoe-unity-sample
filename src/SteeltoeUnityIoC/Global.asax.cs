@@ -23,15 +23,15 @@ namespace SteeltoeUnityIoC
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             // register microsoft & steeltoe services
-            CoreServerConfig.Register(Environment.GetEnvironmentVariable("ASPNET_ENVIRONMENT") ?? "Development");
+            ApplicationConfig.Register(Environment.GetEnvironmentVariable("ASPNET_ENVIRONMENT") ?? "Development");
 
             // test microsoft di container
             Debug.WriteLine("getting service from CoreServerConfig");
 
-            IConfiguration _configuration = CoreServerConfig.GetService<IConfiguration>();
-            IOptionsSnapshot<CloudFoundryServicesOptions> _cfServices = CoreServerConfig.GetService<IOptionsSnapshot<CloudFoundryServicesOptions>>();
-            IConnectionMultiplexer redisConnection = CoreServerConfig.GetService<IConnectionMultiplexer>();
-            ILogger<MvcApplication> _logger = CoreServerConfig.GetService<ILogger<MvcApplication>>();
+            IConfiguration _configuration = ApplicationConfig.GetService<IConfiguration>();
+            IOptionsSnapshot<CloudFoundryServicesOptions> _cfServices = ApplicationConfig.GetService<IOptionsSnapshot<CloudFoundryServicesOptions>>();
+            IConnectionMultiplexer redisConnection = ApplicationConfig.GetService<IConnectionMultiplexer>();
+            ILogger<MvcApplication> _logger = ApplicationConfig.GetService<ILogger<MvcApplication>>();
 
             Debug.WriteLine($"spring app: {_configuration["spring:application:name"]}");
             Debug.WriteLine($"bounded services count: {_cfServices?.Value.ServicesList.Count}");

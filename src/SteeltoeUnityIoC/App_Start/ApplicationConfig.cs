@@ -4,21 +4,34 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Steeltoe.CloudFoundry.Connector.Redis;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
+using System;
+using System.Collections.Generic;
 using Unity.Microsoft.DependencyInjection;
 
 namespace SteeltoeUnityIoC
 {
-    public class CoreServerConfig
+    public class ApplicationConfig
     {
         private static IHost _host;
+        //private static IServiceCollection _services;
 
         public static T GetService<T>()
         {
-
-            return _host.Services.GetService<T>();
+           return _host.Services.GetService<T>();
         }
 
-        
+        //// return registrations
+        //public static Dictionary<Type, object> Registrations()
+        //{
+        //    Dictionary<Type, object> services = new Dictionary<Type, object>();
+        //    foreach (var service in _services)
+        //    {
+        //        services[service.ServiceType] = service.ImplementationInstance;
+        //    }
+
+        //    return services;
+        //}
+
         public static void Register(string environment)
         {
             _host =
@@ -38,15 +51,14 @@ namespace SteeltoeUnityIoC
                         services.AddLogging();
                         services.ConfigureCloudFoundryOptions(hostContext.Configuration);
                         services.AddRedisConnectionMultiplexer(hostContext.Configuration);
-                        //services.AddDistributedRedisCache(hostContext.Configuration);
+
+                        //// assign servicescollection
+                        //_services = services;
+
 
                         // add services to unity container. piggy backing on Unity.Microsoft.DependencyInjection extensions
                         // https://github.com/unitycontainer/microsoft-dependency-injection
                         // https://github.com/unitycontainer/microsoft-dependency-injection/blob/master/src/ServiceProviderExtensions.cs
-
-                        // Unity.Microsoft.DependencyInjection package is pulling Microsoft.NETCore.App and Microsoft.AspNetCore.Hosting.Abstractions. 
-                        // Though we are not using any aspnet core hosting model, not sure if there will be any performance implications in terms of 
-                        // cf push artifacts or full framework app execution. 
 
                         // see which one OF these notations make good sense
                         //services.BuildServiceProvider(UnityConfig.Container);
@@ -57,13 +69,10 @@ namespace SteeltoeUnityIoC
                         //UnityConfig.Container.AddExtension(new MdiExtension())
                         //        .AddServices(services);
 
-
                     })
                     .ConfigureLogging((hostingContext, logging) =>
                     {
-
                         logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
-                        //logging.AddDynamicConsole(hostingContext.Configuration);
                     })
                     .Build();
         }
