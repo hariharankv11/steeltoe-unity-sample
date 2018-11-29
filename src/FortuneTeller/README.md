@@ -11,9 +11,9 @@
 https://github.com/unitycontainer/microsoft-dependency-injection
 https://github.com/unitycontainer/microsoft-dependency-injection/blob/master/src/ServiceProviderExtensions.cs
 
-## Code blocks
+## Code blocks`
 // add services to unity container. piggy backing on Unity.Microsoft.DependencyInjection extensions
-container.BuildServiceProvider(_services);
+container.BuildServiceProvider(_services);`
 
 
 ## Start Discovery client
@@ -22,10 +22,10 @@ container.BuildServiceProvider(_services);
 https://github.com/SteeltoeOSS/Discovery/blob/dev/src/Steeltoe.Discovery.ClientAutofac/DiscoveryContainerBuilderExtensions.cs
     
 ### Code blocks
-public static void StartDiscoveryClient()
+`public static void StartDiscoveryClient()
 {
     UnityConfig.Container.Resolve<IDiscoveryClient>();
-}
+}`
 
 
 ## Start Management endpoints
@@ -36,6 +36,6 @@ https://github.com/SteeltoeOSS/Samples/blob/dev/Management/src/AspDotNet4/CloudF
 https://github.com/SteeltoeOSS/Management/blob/dev/src/Steeltoe.Management.EndpointWeb/ActuatorConfigurator.cs
 
 ### Code blocks
-ActuatorConfigurator.UseCloudFoundryActuators(configuration, dynamicLoggerProvider,
-                                                            healthContributors, null, loggerFactory);
+`ActuatorConfigurator.UseCloudFoundryActuators(configuration, dynamicLoggerProvider,
+                                                            healthContributors, null, loggerFactory);`
 

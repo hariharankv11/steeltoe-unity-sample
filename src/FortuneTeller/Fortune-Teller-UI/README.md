@@ -12,18 +12,18 @@ Features demonstarted
 
  ## Required nuget packages
 
-Microsoft.Extensions.Hosting\
-Microsoft.Extensions.Logging.Console\
-Unity.Aspnet.Webapi\ 
-Unity.Microsoft.DependencyInjection\
+Microsoft.Extensions.Hosting  
+Microsoft.Extensions.Logging.Console  
+Unity.Aspnet.Webapi   
+Unity.Microsoft.DependencyInjection  
 
-Pivotal.Extensions.Configuration.ConfigServercore\
-Pivotal.Discovery.ClientCore\
-Steeltoe.Management.EndpointWeb\
-Steeltoe.CloudFoundry.Connectorcore\
+Pivotal.Extensions.Configuration.ConfigServercore  
+Pivotal.Discovery.ClientCore  
+Steeltoe.Management.EndpointWeb  
+Steeltoe.CloudFoundry.Connectorcore  
 
-StackExchange.Redis\
-Steeltoe.CircuitBreaker.HystrixCore\
+StackExchange.Redis  
+Steeltoe.CircuitBreaker.HystrixCore  
 
 
 

@@ -11,17 +11,17 @@ Features demonstarted
 
  ## Required nuget packages
 
-Microsoft.Extensions.Hosting\
-Microsoft.Extensions.Logging.Console\
-Unity.Aspnet.Webapi\ 
-Unity.Microsoft.DependencyInjection\
+Microsoft.Extensions.Hosting  
+Microsoft.Extensions.Logging.Console  
+Unity.Aspnet.Webapi   
+Unity.Microsoft.DependencyInjection  
 
-Pivotal.Extensions.Configuration.ConfigServercore\
-Pivotal.Discovery.ClientCore\
-Steeltoe.Management.EndpointWeb\
-Steeltoe.CloudFoundry.Connectorcore\
+Pivotal.Extensions.Configuration.ConfigServercore  
+Pivotal.Discovery.ClientCore  
+Steeltoe.Management.EndpointWeb  
+Steeltoe.CloudFoundry.Connectorcore  
 
-System.Data.SqlClient\
+System.Data.SqlClient  
 
 
 
