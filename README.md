@@ -12,4 +12,4 @@ The concept is pretty simple- configure and add services to Micorsoft DI and loa
 * src/FortuneTeller/Fortune-Teller-UI - use config server, connect to Fortune-Teller-Service using Discovery client, add health management, connect to Redis server on CloudFoundry
 
 
-** Target .Net framwork 4.6.1 or above, since we are making use of .net standard libraries **
+**Target .Net framwork 4.6.1 or above, since we are making use of .net standard libraries**
