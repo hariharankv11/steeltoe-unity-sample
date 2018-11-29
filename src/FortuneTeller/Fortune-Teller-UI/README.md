@@ -35,7 +35,7 @@ Steeltoe.CircuitBreaker.HystrixCore
 
 ## Building and Running the app
 
-**Bind these services:**  
+**Create and Bind these services:**  
 
 | Bounded Service Name | PCF Service |
 | --- | --- |
