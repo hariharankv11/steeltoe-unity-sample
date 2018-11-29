@@ -1,6 +1,6 @@
 ## Fortune-Teller-UI
 
-Features demonstarted 
+Features demonstrated 
 
 * Config server
 * Discovery client
@@ -27,7 +27,7 @@ Steeltoe.CircuitBreaker.HystrixCore
 
 
 
-## endpoints to test 
+## Endpoints to test 
 
 <YOUR_PCF_APP_URL>/home/random  
 <YOUR_PCF_APP_URL>/home/cached  
