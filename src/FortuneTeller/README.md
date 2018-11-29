@@ -8,7 +8,7 @@
 ## Load Microsoft DI registrations into Unity container
 
 ### References
-https://github.com/unitycontainer/microsoft-dependency-injection
+https://github.com/unitycontainer/microsoft-dependency-injection  
 https://github.com/unitycontainer/microsoft-dependency-injection/blob/master/src/ServiceProviderExtensions.cs
 
 ## Code blocks
