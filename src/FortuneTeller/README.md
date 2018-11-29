@@ -38,5 +38,5 @@ https://github.com/SteeltoeOSS/Management/blob/dev/src/Steeltoe.Management.Endpo
 
 ### Code blocks
 `ActuatorConfigurator.UseCloudFoundryActuators(configuration, dynamicLoggerProvider,
-                                                            healthContributors, null, loggerFactory);`
+                                                            healthContributors, apiExplorer, loggerFactory);`
 
