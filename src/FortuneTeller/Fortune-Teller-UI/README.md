@@ -13,7 +13,7 @@ This sample use Unity for IoC services. It uses **Unity.Microsoft.DependencyInje
 
 Microsoft.Extensions.Hosting  
 Microsoft.Extensions.Logging.Console  
-Unity.Aspnet.Webapi   
+Unity.Mvc    
 Unity.Microsoft.DependencyInjection  
 
 Pivotal.Extensions.Configuration.ConfigServercore  
