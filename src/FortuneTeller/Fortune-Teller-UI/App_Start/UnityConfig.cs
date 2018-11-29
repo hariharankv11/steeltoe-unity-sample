@@ -41,8 +41,8 @@ namespace Fortune_Teller_UI
             // Make sure to add a Unity.Configuration to the using statements.
             // container.LoadConfiguration();
 
-            // TODO: Register your type's mappings here.
-            container.RegisterType<IFortuneService, FortuneService>();
+            //// TODO: Register your type's mappings here.
+            //container.RegisterType<IFortuneService, FortuneService>();
         }
     }
 }

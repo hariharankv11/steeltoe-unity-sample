@@ -12,5 +12,6 @@ applications:
   services:
    - coreConfigServer
    - eurekaServer
+   - hystrixService
    - redisInstance
   

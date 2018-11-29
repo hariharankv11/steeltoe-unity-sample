@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using StackExchange.Redis;
 using Steeltoe.Common.Discovery;
 using System.Net.Http;
@@ -28,36 +29,47 @@ namespace Fortune_Teller_UI.Services
             _cache = cache;
         }
 
-        public async Task<string> RandomFortuneAsync()
+        public async Task<Fortune> RandomFortuneAsync()
         {
             _logger?.LogInformation("RandomFortuneAsync");
             var client = GetClient();
 
             var result = await client.GetStringAsync(RANDOM_FORTUNE_URL);
             _logger.LogInformation("RandomFortuneAsync: {0}", result);
-
-            if(!await IsItemCached(CACHED_ITEM_KEY))
-                await SetCacheItem(CACHED_ITEM_KEY, result);
-
-            return result;
- 
-        }
-
-        public async Task<string> CachedRandomFortuneAsync()
-        {
-            
-            var result = await GetCacheItem(CACHED_ITEM_KEY);
-            result = string.IsNullOrEmpty(result) ? $"{CACHED_ITEM_KEY} was not found in cache" : result;
-            _logger.LogInformation("CachedRandomFortuneAsync: {0}", result);
-
-            return result;
-
+           
+            return JsonConvert.DeserializeObject<Fortune>(result);
         }
 
         private HttpClient GetClient()
         {
             var client = new HttpClient(_handler, false);
             return client;
+        }
+
+
+        #region redis cache sample
+
+        public async Task<Fortune> GetFortuneInCacheAsync()
+        {
+            var result = await GetCacheItem(CACHED_ITEM_KEY);
+            _logger.LogInformation("CachedRandomFortuneAsync: {0}", result);
+
+
+            if (result == null) return null;
+            return JsonConvert.DeserializeObject<Fortune>(result);
+        }
+
+
+        public async Task SetFortuneInCacheAsync()
+        {
+            _logger?.LogInformation("RandomFortuneAsync");
+
+            if (!await IsItemCached(CACHED_ITEM_KEY))
+            {
+                var fortune = await RandomFortuneAsync();
+                var result = JsonConvert.SerializeObject(fortune);
+                await SetCacheItem(CACHED_ITEM_KEY, result);
+            }
         }
 
         private async Task SetCacheItem(string key, string value)
@@ -78,5 +90,7 @@ namespace Fortune_Teller_UI.Services
             return !string.IsNullOrEmpty(result);
         }
 
+
+        #endregion
     }
 }

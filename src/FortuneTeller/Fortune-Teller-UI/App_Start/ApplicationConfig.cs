@@ -10,6 +10,8 @@ using Steeltoe.Extensions.Configuration.CloudFoundry;
 using Steeltoe.Extensions.Logging;
 using Unity;
 using Unity.Microsoft.DependencyInjection;
+using Steeltoe.CircuitBreaker.Hystrix;
+using Fortune_Teller_UI.Services;
 
 namespace Fortune_Teller_UI
 {
@@ -38,9 +40,18 @@ namespace Fortune_Teller_UI
                         //Add your services as needed including steeltoe extensions
                         services.AddOptions();
                         services.AddLogging();
-                        services.ConfigureCloudFoundryOptions(hostContext.Configuration);
+                        services.ConfigureCloudFoundryOptions(hostContext.Configuration);                                                                                
                         services.AddDiscoveryClient(hostContext.Configuration);
                         services.AddRedisConnectionMultiplexer(hostContext.Configuration);
+
+
+                        services.AddTransient<IFortuneService, FortuneService>();
+
+                        //// A Hystrix command that makes use of the FortuneService
+                        //services.AddHystrixCommand<FortuneServiceCommand>("FortuneService", hostContext.Configuration);
+
+                        //// Add Hystrix metrics stream to enable monitoring 
+                        //services.AddHystrixMetricsStream(hostContext.Configuration);
 
                         // assign service collection to local place holder
                         _services = services;

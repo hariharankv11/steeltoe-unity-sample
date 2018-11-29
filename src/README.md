@@ -1,13 +1,5 @@
-# steeltoe-unity-sample
-.net full framework apps with unity and steeltoe libraries
+## ASP.NET 4.x Samples
 
-
-# code blocks
-
-// references
-// https://github.com/unitycontainer/microsoft-dependency-injection
-// https://github.com/unitycontainer/microsoft-dependency-injection/blob/master/src/ServiceProviderExtensions.cs
-
-
-// add services to unity container. piggy backing on Unity.Microsoft.DependencyInjection extensions
-container.BuildServiceProvider(_services);
+* src/ScratchPad/SteeltoeUnityIoC - sample application to demonstarte loading service registartions from Microsoft DI container to Unity container
+* src/FortuneTeller/Fortune-Teller-Service - use config server, connect to a MS SQL database on Azure, use Discovery client, add health management
+* src/FortuneTeller/Fortune-Teller-UI - use config server, connect to Fortune-Teller-Service using Discovery client, add health management, connect to Redis server on CloudFoundry

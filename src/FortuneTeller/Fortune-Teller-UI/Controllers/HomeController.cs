@@ -8,11 +8,16 @@ namespace Fortune_Teller_UI.Controllers
     [Route("/")]
     public class HomeController : Controller
     {
+        //FortuneServiceCommand _fortuneServiceCommand;
         IFortuneService _fortunes;
         ILogger<HomeController> _logger;
 
-        public HomeController(IFortuneService fortuneService, ILogger<HomeController> logger)
+        public HomeController(
+            //FortuneServiceCommand fortuneServiceCommand,
+            IFortuneService fortuneService,
+            ILogger<HomeController> logger)
         {
+            //_fortuneServiceCommand = fortuneServiceCommand;
             _fortunes = fortuneService;
             _logger = logger;
         }
@@ -24,20 +29,36 @@ namespace Fortune_Teller_UI.Controllers
             return View();
         }
 
+        //// this uses hystrix command, so we can provide fallback logic
+        //[HttpGet]
+        //[Route("random")]
+        //public async Task<JsonResult> Random()
+        //{
+        //    var fortune = await _fortuneServiceCommand.RandomFortune();
+        //    return Json(fortune, JsonRequestBehavior.AllowGet);
+        //}
+
+
+        // this is using service directly
         [HttpGet]
         [Route("random")]
-        public async Task<string> Random()
+        public async Task<JsonResult> Random()
         {
-            _logger?.LogInformation("Random");
-            return  await _fortunes.RandomFortuneAsync();
+            var fortune = await _fortunes.RandomFortuneAsync();
+            return Json(fortune, JsonRequestBehavior.AllowGet);
         }
 
+        // this is using service directly
         [HttpGet]
         [Route("cached")]
-        public async Task<string> Cached()
+        public async Task<JsonResult> Cached()
         {
             _logger?.LogInformation("Cached");
-            return await _fortunes.CachedRandomFortuneAsync();
+
+            await _fortunes.SetFortuneInCacheAsync();
+
+            var fortune = await _fortunes.GetFortuneInCacheAsync();
+            return Json(fortune, JsonRequestBehavior.AllowGet);
         }
     }
 }

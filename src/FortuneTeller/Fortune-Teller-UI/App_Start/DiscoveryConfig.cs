@@ -1,4 +1,5 @@
-﻿using Steeltoe.Common.Discovery;
+﻿using Steeltoe.CircuitBreaker.Hystrix.MetricsStream;
+using Steeltoe.Common.Discovery;
 using Unity;
 
 namespace Fortune_Teller_UI
@@ -18,6 +19,12 @@ namespace Fortune_Teller_UI
 
             // Unregister current app with Service Discovery server
             client.ShutdownAsync().Wait();
+        }
+
+        public static void StartHystrixMetricsStream()
+        {
+            // Start the Hystrix Metrics stream 
+            UnityConfig.Container.Resolve<RabbitMetricsStreamPublisher>();
         }
 
     }

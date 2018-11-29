@@ -25,9 +25,16 @@ namespace Fortune_Teller_UI
             // start discovery client
             DiscoveryConfig.StartDiscoveryClient();
 
+            //// Start the Hystrix Metrics stream 
+            //DiscoveryConfig.StartHystrixMetricsStream();
+
             // register and start management
             ManagementConfig.Register();
             ManagementConfig.Start();
+
+            //// testing IHystrixCommandOptions
+            //var options = UnityConfig.Container.Resolve<IHystrixCommandOptions>();
+            //Console.Error.WriteLine($"IHystrixCommandOptions {((options == null) ? "not " : string.Empty)} resolved");
         }
 
         protected void Application_End()

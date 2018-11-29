@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Fortune_Teller_UI.Services
 {
     public interface IFortuneService
     {
-        Task<string> RandomFortuneAsync();
+        Task<Fortune> RandomFortuneAsync();
 
-        Task<string> CachedRandomFortuneAsync();
+        Task SetFortuneInCacheAsync();
+
+        Task<Fortune> GetFortuneInCacheAsync();
     }
 }
