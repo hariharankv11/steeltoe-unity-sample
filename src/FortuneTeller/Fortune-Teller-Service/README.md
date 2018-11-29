@@ -1,6 +1,6 @@
 ## Fortune-Teller-Service
 
-Features demonstarted 
+Features demonstrated 
 
 * Config server
 * MS SQL Connector to connect a MS SQL database on Azure
@@ -25,7 +25,7 @@ System.Data.SqlClient
 
 
 
-## endpoints to test 
+## Endpoints to test 
 
 <YOUR_PCF_APP_URL>/api/fortunes/random
 
