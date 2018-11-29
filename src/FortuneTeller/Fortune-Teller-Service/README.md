@@ -18,7 +18,7 @@ Unity.Microsoft.DependencyInjection
 
 Pivotal.Extensions.Configuration.ConfigServercore  
 Pivotal.Discovery.ClientCore  
-Steeltoe.Management.EndpointWeb  
+Steeltoe.Management.CloudFoundryCore  
 Steeltoe.CloudFoundry.Connectorcore  
 
 System.Data.SqlClient  
