@@ -13,5 +13,5 @@ https://github.com/unitycontainer/microsoft-dependency-injection/blob/master/src
 
 
 ## Code blocks
-// add services to unity container. piggy backing on Unity.Microsoft.DependencyInjection extensions
-container.BuildServiceProvider(_services);
+`// add services to unity container. piggy backing on Unity.Microsoft.DependencyInjection extensions
+container.BuildServiceProvider(_services);`
