@@ -19,7 +19,7 @@ Unity.Microsoft.DependencyInjection
 
 Pivotal.Extensions.Configuration.ConfigServercore  
 Pivotal.Discovery.ClientCore  
-Steeltoe.Management.EndpointWeb  
+Steeltoe.Management.CloudFoundryCore 
 Steeltoe.CloudFoundry.Connectorcore  
 
 StackExchange.Redis  
@@ -36,10 +36,13 @@ Steeltoe.CircuitBreaker.HystrixCore
 ## Building and Running the app
 
 **Bind these services:**  
-coreConfigServer    -   config server service  
-redisInstance       -   redis service   
-eurekaServer        -   service registry service  
-hystrixService      -   circuit breaker service  
+
+| Bounded Service Name | PCF Service |
+| --- | --- |
+| coreConfigServer | config server service  
+| redisInstance | redis service   
+| eurekaServer | service registry service  
+| hystrixService | circuit breaker service  
 
 ## Things in progress
 Could not get the HystrixCommand to work. Commented out code blocks. Will revist it.
