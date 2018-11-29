@@ -32,7 +32,10 @@ System.Data.SqlClient
 
 ## Building and Running the app
 
-**Bind these services:**  
-coreConfigServer    -   config server service  
-sqlServerInstance   -   user provided service  
-eurekaServer        -   service registry service  
+**Create and Bind these services:**  
+
+| Bounded Service Name | PCF Service |
+| --- | --- |
+| coreConfigServer | config server service  
+| sqlServerInstance | user provided service   
+| eurekaServer | service registry service  
