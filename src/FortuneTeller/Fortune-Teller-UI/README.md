@@ -29,17 +29,17 @@ Steeltoe.CircuitBreaker.HystrixCore
 
 ## endpoints to test 
 
-<YOUR_PCF_APP_URL>/home/random
-<YOUR_PCF_APP_URL>/home/cached
+<YOUR_PCF_APP_URL>/home/random  
+<YOUR_PCF_APP_URL>/home/cached  
 
 
 ## Building and Running the app
 
-Conncted services:
-coreConfigServer    -   config server service
-redisInstance       -   redis service 
-eurekaServer        -   service registry service
-hystrixService      -   circuit breaker service
+**Bind these services:**
+coreConfigServer    -   config server service  
+redisInstance       -   redis service   
+eurekaServer        -   service registry service  
+hystrixService      -   circuit breaker service  
 
 ## Things in progress
 Could not get the HystrixCommand to work. Commented out code blocks. Will revist it.

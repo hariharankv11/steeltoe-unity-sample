@@ -31,9 +31,9 @@ https://github.com/SteeltoeOSS/Discovery/blob/dev/src/Steeltoe.Discovery.ClientA
 ## Start Management endpoints
 
 ### References
-Alfus's springone demo
-https://github.com/SteeltoeOSS/Samples/blob/dev/Management/src/AspDotNet4/CloudFoundryWeb/App_Start/ManagementConfig.cs
-https://github.com/SteeltoeOSS/Management/blob/dev/src/Steeltoe.Management.EndpointWeb/ActuatorConfigurator.cs
+Alfus's springone demo  
+https://github.com/SteeltoeOSS/Samples/blob/dev/Management/src/AspDotNet4/CloudFoundryWeb/App_Start/ManagementConfig.cs  
+https://github.com/SteeltoeOSS/Management/blob/dev/src/Steeltoe.Management.EndpointWeb/ActuatorConfigurator.cs  
 
 ### Code blocks
 `ActuatorConfigurator.UseCloudFoundryActuators(configuration, dynamicLoggerProvider,
