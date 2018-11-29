@@ -1,12 +1,13 @@
 ## Fortune-Teller-Service
 
-Features demonstrated 
+This sample use Unity for IoC services. It uses **Unity.Microsoft.DependencyInjection nuget package** to enable the app to move registrations frpm Microsoft DI container to Unity container. This app uses below below cloudfoundry services  
 
 * Config server
-* MS SQL Connector to connect a MS SQL database on Azure
+* MS SQL Connector to connect a MS SQL database on Azure 
 * Discovery client
 * Health management
 
+*Note: This app is enabled to get SqlServer connection using DI, but data is not pulled from Sql Server db. You can extend this functionality to get data from your Sql db*.  
 
 
  ## Required nuget packages

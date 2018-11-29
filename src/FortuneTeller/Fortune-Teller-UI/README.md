@@ -1,13 +1,12 @@
 ## Fortune-Teller-UI
 
-Features demonstrated 
+This sample use Unity for IoC services. It uses **Unity.Microsoft.DependencyInjection nuget package** to enable the app to move registrations frpm Microsoft DI container to Unity container. This app uses below below cloudfoundry services  
 
 * Config server
 * Discovery client
 * Redis Server
 * Health management
 * Hystrix (in-progress)
-
 
 
  ## Required nuget packages
@@ -19,7 +18,7 @@ Unity.Microsoft.DependencyInjection
 
 Pivotal.Extensions.Configuration.ConfigServercore  
 Pivotal.Discovery.ClientCore  
-Steeltoe.Management.CloudFoundryCore 
+Steeltoe.Management.CloudFoundryCore   
 Steeltoe.CloudFoundry.Connectorcore  
 
 StackExchange.Redis  
@@ -45,4 +44,4 @@ Steeltoe.CircuitBreaker.HystrixCore
 | hystrixService | circuit breaker service  
 
 ## Things in progress
-Could not get the HystrixCommand to work. Commented out code blocks. Will revist it.
+Could not get the HystrixCommand to work. Commented out code blocks. I will address this later.

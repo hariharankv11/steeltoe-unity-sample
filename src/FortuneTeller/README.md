@@ -3,7 +3,8 @@
 * src/FortuneTeller/Fortune-Teller-Service - use config server, connect to a MS SQL database on Azure, use Discovery client, add health management
 * src/FortuneTeller/Fortune-Teller-UI - use config server, connect to Fortune-Teller-Service using Discovery client, add health management, connect to Redis server on CloudFoundry
 
-
+Fortune-Teller-Service - provides endpoints to get fortune(s) from in-memory collection.  
+Fortune-Teller-UI - discovers Fortune-Teller-Service and consumes its endpoints.   
 
 ## Load Microsoft DI registrations into Unity container
 
