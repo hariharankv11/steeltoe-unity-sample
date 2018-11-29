@@ -32,7 +32,7 @@ System.Data.SqlClient
 
 ## Building and Running the app
 
-**Bind these services:**
+**Bind these services:**  
 coreConfigServer    -   config server service  
 sqlServerInstance   -   user provided service  
 eurekaServer        -   service registry service  

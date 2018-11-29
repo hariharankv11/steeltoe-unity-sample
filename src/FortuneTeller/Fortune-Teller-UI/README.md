@@ -35,7 +35,7 @@ Steeltoe.CircuitBreaker.HystrixCore
 
 ## Building and Running the app
 
-**Bind these services:**
+**Bind these services:**  
 coreConfigServer    -   config server service  
 redisInstance       -   redis service   
 eurekaServer        -   service registry service  
