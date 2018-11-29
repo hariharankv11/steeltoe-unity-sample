@@ -4,6 +4,7 @@ using Steeltoe.Common.Diagnostics;
 using Steeltoe.Common.HealthChecks;
 using Steeltoe.Management.Endpoint;
 using System.Collections.Generic;
+using System.Web.Http;
 
 namespace Fortune_Teller_Service
 {   
@@ -15,9 +16,10 @@ namespace Fortune_Teller_Service
             var dynamicLoggerProvider = ApplicationConfig.GetService<ILoggerProvider>();
             var healthContributors = ApplicationConfig.GetService<IEnumerable<IHealthContributor>>();
             var loggerFactory = ApplicationConfig.GetService<ILoggerFactory>();
+            var apiExplorer = GlobalConfiguration.Configuration.Services.GetApiExplorer();
 
             ActuatorConfigurator.UseCloudFoundryActuators(configuration, dynamicLoggerProvider,
-                                                            healthContributors, null, loggerFactory);
+                                                            healthContributors, apiExplorer, loggerFactory);
         }
 
         public static void Start()
