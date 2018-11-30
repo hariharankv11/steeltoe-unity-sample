@@ -22,7 +22,7 @@ This sample use Unity for IoC services. This app discovers Fortune-Teller-Servic
 
 Microsoft.Extensions.Hosting  
 Microsoft.Extensions.Logging.Console  
-Unity.Aspnet.Webapi   
+Unity.Mvc    
 Unity.Microsoft.DependencyInjection  
 
 Pivotal.Extensions.Configuration.ConfigServercore  
