@@ -7,11 +7,38 @@ This is just a scratchpad application where I tried different solutions to load 
 * Tried to extract code blocks of Unity.Microsoft.DependencyInjection extension, thinking of avoiding dependency on Unity.Microsoft.DependencyInjection. But code started becoming wonky since I had to pull multiple dependent classes. **(did not work)**
 
 
-## References
+
+
+## Load Microsoft DI registrations into Unity container
+
+### References
 https://github.com/unitycontainer/microsoft-dependency-injection  
 https://github.com/unitycontainer/microsoft-dependency-injection/blob/master/src/ServiceProviderExtensions.cs
 
-
-## Code blocks
+### Code blocks
 `// add services to unity container. piggy backing on Unity.Microsoft.DependencyInjection extensions
 container.BuildServiceProvider(_services);`
+
+
+## Start Discovery client
+
+### References
+https://github.com/SteeltoeOSS/Discovery/blob/dev/src/Steeltoe.Discovery.ClientAutofac/DiscoveryContainerBuilderExtensions.cs
+    
+### Code blocks
+`public static void StartDiscoveryClient()
+{
+    UnityConfig.Container.Resolve<IDiscoveryClient>();
+}`
+
+
+## Start Management endpoints
+
+### References
+Alfus's springone demo  
+https://github.com/SteeltoeOSS/Samples/blob/dev/Management/src/AspDotNet4/CloudFoundryWeb/App_Start/ManagementConfig.cs  
+https://github.com/SteeltoeOSS/Management/blob/dev/src/Steeltoe.Management.EndpointWeb/ActuatorConfigurator.cs  
+
+### Code blocks
+`ActuatorConfigurator.UseCloudFoundryActuators(configuration, dynamicLoggerProvider,
+                                                            healthContributors, apiExporter, loggerFactory);`

@@ -1,14 +1,40 @@
-# ASP.NET 4.x Sample Applications with Unity and Steeltoe 
+# ASP.NET 4.x sample applications with Unity and Stelltoe 
 
-This repo contains sample apps illustrating how to use the Steeltoe libraries for connecting to CloudFoundry services in your ASP.NET 4.x application using Unity IoC. It takes quite an effort to instrument full framework app to use some of the Steeltoe features. Autofac extensions are available for full framework to abstarct away that effort. But there are no Unity extensions availble. These sample apps illustarte how to use Steeltoe features with less effort. 
+It takes quite an effort to instrument/inject some of the Steeltoe features in full framework app. SteeltoeOSS has Autofac extensions for full framework to abstarct away that effort. But there are no Unity extensions availble. Sample apps in **[steeltoe-unity-samples](https://github.com/kolluri-rk/steeltoe-unity-sample) git repo** illustrate how to use Steeltoe features with less effort when using **Unity for IoC services**. 
 
-The concept is pretty simple - configure and add services to Micorsoft DI container and load them into Unity container. So you can use Unity for your apps the same way you do and can inject Steeltoe interfaces (and Unity IoC can resolve them). 
+**How it works?** - configure and add services to Micorsoft DI container and load them into Unity container. So you can leverage Unity IoC in your apps the same way you do and can inject Steeltoe interfaces. Unity container will resolve them without any issues. 
+
+**Note: Create/upgrade your app to target .Net Framework 4.6.1 or above, since we are making use of .Net Standard libraries**
 
 
-## ASP.NET 4.x Samples
+## Pre-requisites
+1. ASP.NET app tragets .Net Framework 4.6.1 or above
+1. ASP.NET WEB API project use Unity.Aspnet.Webapi nuget
+1. ASP.NET MVC project use Unity.Mvc nuget
+
+
+## How to instrument the app to load registration into Unity container
+
+1. Get Unity.Microsoft.DependencyInjection nuget
+1. Add services to Microsoft DI container. [Refer to ApplicationConfig.cs](https://github.com/kolluri-rk/steeltoe-unity-sample/blob/master/src/FortuneTeller/Fortune-Teller-Service/App_Start/ApplicationConfig.cs) 
+1. Use [DiscoveryConfig.cs](https://github.com/kolluri-rk/steeltoe-unity-sample/blob/master/src/FortuneTeller/Fortune-Teller-Service/App_Start/DiscoveryConfig.cs) to register/fetch your app in/from Eureka server
+1. Use [ManagementConfig.cs](https://github.com/kolluri-rk/steeltoe-unity-sample/blob/master/src/FortuneTeller/Fortune-Teller-Service/App_Start/ManagementConfig.cs) to add cloudfoundry management endpoints and healthchecks 
+1. Register and build service provider in **Application_Start() of Global.asax.cs**  
+    `// register microsoft & steeltoe services
+    ApplicationConfig.Register(Environment.GetEnvironmentVariable("ASPNET_ENVIRONMENT") ?? "Development"); ` </br></br>
+    `// build service provider for unity container
+    ApplicationConfig.BuildServiceProvider(UnityConfig.Container);`  
+
+    **BuildServiceProvider(UnityConfig.Container)** method loads regsitrations from Microsoft container to Unity container
+
+1. Refer to [Global.asax.cs]() to start and stop Discovery client
+
+
+## ASP.NET 4.x Samples with Unity and Stelltoe 
+
+Find sample apps at **[steeltoe-unity-samples](https://github.com/kolluri-rk/steeltoe-unity-sample)** git repo
 
 * src/FortuneTeller/Fortune-Teller-Service - use config server, connect to a MS SQL database on Azure, use Discovery client, add health management
 * src/FortuneTeller/Fortune-Teller-UI - use config server, connect to Fortune-Teller-Service using Discovery client, add health management, connect to Redis server on CloudFoundry
 * src/ScratchPad/SteeltoeUnityIoC - sample application to demonstrate loading service registrations from Microsoft DI container to Unity container
 
-**Target .Net Framework 4.6.1 or above, since we are making use of .Net Standard libraries**
