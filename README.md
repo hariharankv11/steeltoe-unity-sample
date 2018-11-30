@@ -19,11 +19,12 @@ It takes quite an effort to instrument/inject some of the Steeltoe features in f
 1. Add services to Microsoft DI container. Refer to [ApplicationConfig.cs](https://github.com/kolluri-rk/steeltoe-unity-sample/blob/master/src/FortuneTeller/Fortune-Teller-Service/App_Start/ApplicationConfig.cs) 
 1. Use [DiscoveryConfig.cs](https://github.com/kolluri-rk/steeltoe-unity-sample/blob/master/src/FortuneTeller/Fortune-Teller-Service/App_Start/DiscoveryConfig.cs) to register/fetch your app in/from Eureka server
 1. Use [ManagementConfig.cs](https://github.com/kolluri-rk/steeltoe-unity-sample/blob/master/src/FortuneTeller/Fortune-Teller-Service/App_Start/ManagementConfig.cs) to add cloudfoundry management endpoints and healthchecks 
-1. Register and build service provider in **Application_Start() methos in Global.asax.cs**  
-    `// register microsoft & steeltoe services`  
-    `ApplicationConfig.Register(Environment.GetEnvironmentVariable("ASPNET_ENVIRONMENT") ?? "Development"); ` </br></br>
-    `// build service provider for unity container`
-    `ApplicationConfig.BuildServiceProvider(UnityConfig.Container);`  
+1. Register and build service provider in **Application_Start() method in Global.asax.cs**  
+    `// register microsoft & steeltoe services  
+    ApplicationConfig.Register(Environment.GetEnvironmentVariable("ASPNET_ENVIRONMENT") ?? "Development");`   
+    
+    `// build service provider for unity container  
+    ApplicationConfig.BuildServiceProvider(UnityConfig.Container);`  
 
     **BuildServiceProvider(UnityConfig.Container)** method loads regsitrations from Microsoft container to Unity container
 
