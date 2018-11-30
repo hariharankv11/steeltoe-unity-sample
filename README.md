@@ -1,4 +1,4 @@
-# ASP.NET 4.x sample applications with Unity and Stelltoe 
+# ASP.NET 4.x sample applications with Unity and Steeltoe 
 
 It takes quite an effort to instrument/inject some of the Steeltoe features in full framework app. SteeltoeOSS has Autofac extensions for full framework to abstarct away that effort. But there are no Unity extensions availble. Sample apps in **[steeltoe-unity-samples](https://github.com/kolluri-rk/steeltoe-unity-sample) git repo** illustrate how to use Steeltoe features with less effort when using **Unity for IoC services**. 
 
@@ -33,7 +33,7 @@ It takes quite an effort to instrument/inject some of the Steeltoe features in f
 1. Refer to [Global.asax.cs](https://github.com/kolluri-rk/steeltoe-unity-sample/blob/master/src/FortuneTeller/Fortune-Teller-Service/Global.asax.cs) to start and stop Discovery client
 
 
-## ASP.NET 4.x Samples with Unity and Stelltoe 
+## ASP.NET 4.x Samples with Unity and Steeltoe 
 
 * src/FortuneTeller/Fortune-Teller-Service - use config server, connect to a MS SQL database on Azure, use Discovery client, add health management
 * src/FortuneTeller/Fortune-Teller-UI - use config server, connect to Fortune-Teller-Service using Discovery client, add health management, connect to Redis server on CloudFoundry

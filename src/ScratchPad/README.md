@@ -7,8 +7,6 @@ This is just a scratchpad application where I tried different solutions to load 
 * Tried to extract code blocks of Unity.Microsoft.DependencyInjection extension, thinking of avoiding dependency on Unity.Microsoft.DependencyInjection. But code started becoming wonky since I had to pull multiple dependent classes. **(did not work)**
 
 
-
-
 ## Load Microsoft DI registrations into Unity container
 
 ### References
