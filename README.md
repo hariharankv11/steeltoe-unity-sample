@@ -32,8 +32,6 @@ It takes quite an effort to instrument/inject some of the Steeltoe features in f
 
 ## ASP.NET 4.x Samples with Unity and Stelltoe 
 
-Find sample apps at **[steeltoe-unity-samples](https://github.com/kolluri-rk/steeltoe-unity-sample)** git repo
-
 * src/FortuneTeller/Fortune-Teller-Service - use config server, connect to a MS SQL database on Azure, use Discovery client, add health management
 * src/FortuneTeller/Fortune-Teller-UI - use config server, connect to Fortune-Teller-Service using Discovery client, add health management, connect to Redis server on CloudFoundry
 * src/ScratchPad/SteeltoeUnityIoC - sample application to demonstrate loading service registrations from Microsoft DI container to Unity container
