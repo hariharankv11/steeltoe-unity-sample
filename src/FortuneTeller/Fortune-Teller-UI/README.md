@@ -27,7 +27,7 @@ Unity.Microsoft.DependencyInjection
 
 Pivotal.Extensions.Configuration.ConfigServercore  
 Pivotal.Discovery.ClientCore  
-Steeltoe.Management.CloudFoundryCore   
+Steeltoe.Management.EndpointWeb  
 Steeltoe.CloudFoundry.Connectorcore  
 
 StackExchange.Redis  
@@ -52,7 +52,7 @@ You must first create instances of the Config Server service, Service Registry s
 1. Select src/FortuneTeller/Fortune-Teller-UI project in Solution Explorer.
 1. Right-click and select Publish
 1. Publish the App to a folder (bin/Debug/net472/win10-x64/publish)
-1. cd src/FortuneTeller/Fortune-Teller-Service
+1. cd src/FortuneTeller/Fortune-Teller-UI
 1. cf push (publish folder path was set in manifest.yml)
 
 
